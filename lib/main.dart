@@ -37,7 +37,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
 
-  final Color navigationBarColor = Colors.white;
+  
   int selectedIndex = 0;
   late PageController pageController;
   @override
@@ -48,10 +48,10 @@ class _MyHomePageState extends State<MyHomePage> {
     
   }
   _MyHomePageState() {
-  /// Init Alan Button with project key from Alan Studio      
+       
   AlanVoice.addButton("02c928ef41848e918efab694f76ffbc82e956eca572e1d8b807a3e2338fdd0dc/stage");
 
-  /// Handle commands from Alan Studio
+
   AlanVoice.onCommand.add((command) {
     debugPrint("got new command ${command.toString()}");
   });
@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
-        systemNavigationBarColor: navigationBarColor,
+        
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
       
@@ -79,42 +79,62 @@ class _MyHomePageState extends State<MyHomePage> {
           physics: const NeverScrollableScrollPhysics(),
           controller: pageController,
           children: <Widget>[
-            Container(
-              alignment: Alignment.center,
-              padding: const EdgeInsets.all(32),
-               child: const TextField(
-                decoration: InputDecoration(hintText: 'Email'),
+            
+              Center(
+        child: Column(
+          children: [
+            const SizedBox(height: 200),
+            ConstrainedBox(
+              constraints: const BoxConstraints(
+                minWidth: 200,
+                maxWidth: 300,
+                minHeight: 200,
+                maxHeight: 300,
               ),
-            ),
-            Container(
-   
+              child: Container(
+                height: 500, //300
+                width: 500, //300
+                color: Colors.red,
+                alignment: Alignment.center,
+                child: const Text(
+                  "penambahan histori chat AI dan bisa\nmenggunakan perintah TTS untuk no't voice",
+                  style: TextStyle(color: Colors.white, fontSize: 25),
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ),
             
           ],
         ),
+              ),  
+          ],
+        ),
         bottomNavigationBar: ClipRRect(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
           child: WaterDropNavBar(
-            backgroundColor: navigationBarColor,
+          
             onItemSelected: (int index) {
               setState(() {
                 selectedIndex = index;
               });
-              pageController.animateToPage(selectedIndex,
-                  duration: const Duration(milliseconds: 400),
-                  curve: Curves.easeOutQuad);
             },
             selectedIndex: selectedIndex,
             barItems: <BarItem>[
-              BarItem(
-                filledIcon: Icons.message_rounded,
-                outlinedIcon: Icons.message_outlined,
-              ),
+              BarItem(filledIcon: Icons.smart_screen, 
+              outlinedIcon: Icons.smart_screen_outlined,),
+             
               BarItem(
                 filledIcon: Icons.mic_none_rounded,
                 outlinedIcon: Icons.mic_none_outlined,
+              
               ),
+               BarItem(
+                filledIcon: Icons.message_rounded,
+                outlinedIcon: Icons.message_outlined,
+              ),
+              
             ],
+
           ),
         ),
       ),
