@@ -87,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 // shadowStrength: 2,
                 child: Center(
                   child: Text(
-                    "Hello World",
+                    "Hello Alan",
                   ),
                 ),
               ),
