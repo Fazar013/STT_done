@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
 import 'package:alan_voice/alan_voice.dart';
+import 'package:glassmorphism_ui/glassmorphism_ui.dart';
 
 void main() {
   runApp(const MyApp());
@@ -60,38 +61,53 @@ class _MyHomePageState extends State<MyHomePage> {
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 149, 241, 195),
+       
         body: PageView(
           physics: const NeverScrollableScrollPhysics(),
           controller: pageController,
           children: <Widget>[
-            Center(
-              child: Column(
-                // ignore: always_specify_types
-                children: [
-                  const SizedBox(height: 200),
-                  ConstrainedBox(
-                    constraints: const BoxConstraints(
-                      minWidth: 200,
-                      maxWidth: 300,
-                      minHeight: 200,
-                      maxHeight: 300,
-                    ),
-                    child: Container(
-                      height: 500, //300
-                      width: 500, //300
-                      color: Colors.red,
-                      alignment: Alignment.center,
-                      child: const Text(
-                        "penambahan histori chat AI dan bisa\nmenggunakan perintah TTS untuk no't voice",
-                        style: TextStyle(color: Colors.white, fontSize: 25),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
+            Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Colors.red,
+              Colors.green,
+              Colors.black,
+            ],
+          ),
+        ),
+        child: Center(
+          child: Stack(
+            children: [
+              GlassContainer(
+                height: 300,
+                width: 300,
+                // blur: 1,
+                // opacity: 0.2,
+                // shadowStrength: 2,
+                child: Center(
+                  child: Text(
+                    "Hello World",
                   ),
-                ],
+                ),
               ),
-            ),
+             
+              
+            ],
+          ),
+        ),
+      ),
+            Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        Image.asset(
+          'asset/ai.jpg', width: 100.0, height: 100.0,
+        ),
+      ],
+    ),
+
           ],
         ),
         bottomNavigationBar: ClipRRect(
