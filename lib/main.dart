@@ -80,11 +80,11 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Stack(
             children: [
               GlassContainer(
-                height: 300,
+               height: 300,
                 width: 300,
-                // blur: 1,
-                // opacity: 0.2,
-                // shadowStrength: 2,
+               // blur: 1,
+                opacity: 0.1,
+                shadowStrength: 5,
                 child: Center(
                   child: Text(
                     "Hello Alan",
