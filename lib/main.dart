@@ -134,18 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Image.asset(
-                  'asset/ai.jpg',
-                  width: 100,
-                  height: 100,
-                ),
-              ],
-            ),
+            
           ],
         ),
         bottomNavigationBar: ClipRRect(
