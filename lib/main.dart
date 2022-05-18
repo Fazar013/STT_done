@@ -47,7 +47,8 @@ class _MyHomePageState extends State<MyHomePage> {
   _MyHomePageState() {
     AlanVoice.addButton(
         "02c928ef41848e918efab694f76ffbc82e956eca572e1d8b807a3e2338fdd0dc/stage");
-
+    
+    
     AlanVoice.onCommand.add((Command command) {
       debugPrint("got new command ${command.toString()}");
     });
@@ -137,7 +138,15 @@ class _MyHomePageState extends State<MyHomePage> {
             
           ],
         ),
-        bottomNavigationBar: ClipRRect(
+       
+        floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.mic_none_rounded),
+        backgroundColor: Colors.red,
+        
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+       bottomNavigationBar: ClipRRect(
           borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
           child: WaterDropNavBar(
             onItemSelected: (int index) {
@@ -151,10 +160,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 filledIcon: Icons.smart_screen,
                 outlinedIcon: Icons.smart_screen_outlined,
               ),
-              BarItem(
-                filledIcon: Icons.mic_none_rounded,
-                outlinedIcon: Icons.mic_none_outlined,
-              ),
+             
+              
               BarItem(
                 filledIcon: Icons.message_rounded,
                 outlinedIcon: Icons.message_outlined,
@@ -162,6 +169,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
+     
       ),
     );
   }
