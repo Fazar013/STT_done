@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
 import 'package:alan_voice/alan_voice.dart';
-import 'package:glassmorphism_ui/glassmorphism_ui.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:glassmorphism_widgets/glassmorphism_widgets.dart';
 
 Future<void> main() async {
   runApp(const MyApp());
@@ -42,16 +42,6 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     pageController = PageController(initialPage: selectedIndex);
-  }
-
-  _MyHomePageState() {
-    AlanVoice.addButton(
-        "02c928ef41848e918efab694f76ffbc82e956eca572e1d8b807a3e2338fdd0dc/stage");
-    
-    
-    AlanVoice.onCommand.add((Command command) {
-      debugPrint("got new command ${command.toString()}");
-    });
   }
 
   @override
@@ -119,18 +109,19 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       ),
                     ),
-                    const GlassContainer(
+                   GlassContainer(
                       height: 300,
                       width: 300,
-                      // blur: 1,
-                      opacity: 0.1,
-                      shadowStrength: 5,
-                      child: Center(
+                       blur: 1,
+                      border: 5, 
+                      
+                      child: const Center(
                         child: Text(
                           "Hello Alan",
                         ),
                       ),
-                    ),
+                   ),
+
                   ],
                 ),
               ),
@@ -139,11 +130,20 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
        
-        floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.mic_none_rounded),
-        backgroundColor: Colors.red,
+        floatingActionButton: GlassFloatingActionButton(
+        onPressed: () {AlanVoice.addButton(
+        "02c928ef41848e918efab694f76ffbc82e956eca572e1d8b807a3e2338fdd0dc/stage");
+         
+    AlanVoice.onCommand.add((Command command) {
+      debugPrint("got new command ${command.toString()}");
+    });
+        },
+        child: const Icon( 
         
+          Icons.mic_none_rounded),
+          
+      
+       
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
        bottomNavigationBar: ClipRRect(

@@ -81,13 +81,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  glassmorphism_ui:
+  glassmorphism_widgets:
     dependency: "direct main"
     description:
-      name: glassmorphism_ui
+      name: glassmorphism_widgets
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0"
+    version: "0.1.0"
   lints:
     dependency: transitive
     description:

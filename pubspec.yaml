@@ -14,8 +14,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   alan_voice: ^3.3.0
   water_drop_nav_bar: ^2.1.0+9
-  glassmorphism_ui: ^0.2.0
   qr_flutter: ^4.0.0
+  glassmorphism_widgets: ^0.1.0
 
 dev_dependencies:
   flutter_test:
