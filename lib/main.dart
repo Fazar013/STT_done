@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'AI Alan aps',
       theme: ThemeData(
         primarySwatch: Colors.red,
         canvasColor: Colors.yellow,
@@ -33,9 +33,13 @@ class MyHomePage extends StatefulWidget {
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
+  
 }
 
+
 class _MyHomePageState extends State<MyHomePage> {
+  
+  
   int selectedIndex = 0;
   late PageController pageController;
   @override
@@ -46,7 +50,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
         systemNavigationBarIconBrightness: Brightness.dark,
@@ -58,12 +61,9 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Container(
               decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Colors.red,
-                    Colors.green,
-                    Colors.black,
-                  ],
+                 image:  DecorationImage(
+                  image:  AssetImage("assets/my.png"),
+                  fit: BoxFit.fill,
                 ),
               ),
               child: Center(
@@ -80,14 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             version: QrVersions.auto,
                             backgroundColor: Colors.white,
                             foregroundColor: Colors.black,
-                            size: 90,
-                            // embeddedImage: const AssetImage(
-                            //   'assets/icons8-search-50.png',
-                            // ),
-                            // embeddedImageStyle: QrEmbeddedImageStyle(
-                            //   size: const Size(40, 40),
-                            //   color: Colors.white,
-                            // ),
+                            size: 80,
                             data:
                                 '00020101021126590013ID.CO.BNI.WWW011893600009150211577802096017020480303UMI51450015ID.OR.GPNQR.WWW0215ID10221724287270303UMI5204481453033605802ID5911BW*MOBAZONE6015LABUHANBATU UTA6105214576304B39E',
                             errorStateBuilder: (cxt, err) {
@@ -103,50 +96,60 @@ class _MyHomePageState extends State<MyHomePage> {
                             'Hello World AI Apps',
                             style: TextStyle(
                               fontSize: 20,
-                              color: Colors.white,
+                              color: Color.fromARGB(255, 47, 53, 129),
                             ),
                           ),
                         ],
                       ),
                     ),
-                   GlassContainer(
-                      height: 300,
-                      width: 300,
-                       blur: 1,
-                      border: 5, 
-                      
+                    GlassContainer(
+                      height: 250,
+                      width: 320,
+                      blur: 1,
+                      border: 5,
                       child: const Center(
                         child: Text(
                           "Hello Alan",
+                          
                         ),
                       ),
-                   ),
-
+                    ),
+                    GlassListTile(
+                     
+                      leading: GlassIcon(Icons.search),
+                      title: TextField( 
+                        decoration: InputDecoration(
+                          hintText: 'search',
+                          border: InputBorder.none,
+                          hintStyle: glassTextStyle,
+                        ),
+                         style: glassTextStyle,                  
+                      ),
+                      onTap: () {},
+                    )
                   ],
                 ),
               ),
             ),
-            
           ],
         ),
-       
-        floatingActionButton: GlassFloatingActionButton(
-        onPressed: () {AlanVoice.addButton(
-        "02c928ef41848e918efab694f76ffbc82e956eca572e1d8b807a3e2338fdd0dc/stage");
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            AlanVoice.addButton(
+                "02c928ef41848e918efab694f76ffbc82e956eca572e1d8b807a3e2338fdd0dc/stage");
+
+            AlanVoice.onCommand.add((Command command) {
+              debugPrint("got new command ${command.toString()}");
+            });
+            
+          },
+          child: const Icon(
+            Icons.mic_none_rounded,
+          ),
          
-    AlanVoice.onCommand.add((Command command) {
-      debugPrint("got new command ${command.toString()}");
-    });
-        },
-        child: const Icon( 
-        
-          Icons.mic_none_rounded),
-          
-      
-       
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-       bottomNavigationBar: ClipRRect(
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: ClipRRect(
           borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
           child: WaterDropNavBar(
             onItemSelected: (int index) {
@@ -160,8 +163,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 filledIcon: Icons.smart_screen,
                 outlinedIcon: Icons.smart_screen_outlined,
               ),
-             
-              
               BarItem(
                 filledIcon: Icons.message_rounded,
                 outlinedIcon: Icons.message_outlined,
@@ -169,7 +170,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
-     
       ),
     );
   }

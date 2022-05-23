@@ -16,16 +16,18 @@ dependencies:
   water_drop_nav_bar: ^2.1.0+9
   qr_flutter: ^4.0.0
   glassmorphism_widgets: ^0.1.0
+  json_lib: ^1.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
+  flutter_lints: ^1.0.4
 
 flutter:
   uses-material-design: true
 
   assets:
-    - assets/ai.jpg
+    - assets/mic.png
     - assets/icons8-search-50.png
+    - assets/my.png
   
