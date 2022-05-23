@@ -33,13 +33,9 @@ class MyHomePage extends StatefulWidget {
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
-  
 }
 
-
 class _MyHomePageState extends State<MyHomePage> {
-  
-  
   int selectedIndex = 0;
   late PageController pageController;
   @override
@@ -61,8 +57,8 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Container(
               decoration: const BoxDecoration(
-                 image:  DecorationImage(
-                  image:  AssetImage("assets/my.png"),
+                image: DecorationImage(
+                  image: AssetImage("assets/jar.jpg"),
                   fit: BoxFit.fill,
                 ),
               ),
@@ -96,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             'Hello World AI Apps',
                             style: TextStyle(
                               fontSize: 20,
-                              color: Color.fromARGB(255, 47, 53, 129),
+                              color: Color.fromARGB(255, 255, 255, 255),
                             ),
                           ),
                         ],
@@ -110,20 +106,18 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: const Center(
                         child: Text(
                           "Hello Alan",
-                          
                         ),
                       ),
                     ),
                     GlassListTile(
-                     
-                      leading: GlassIcon(Icons.search),
-                      title: TextField( 
+                      trailing : const GlassIcon(Icons.send),
+                      title: TextField(
                         decoration: InputDecoration(
-                          hintText: 'search',
+                          hintText: 'enter the command here',
                           border: InputBorder.none,
                           hintStyle: glassTextStyle,
                         ),
-                         style: glassTextStyle,                  
+                        style: glassTextStyle,
                       ),
                       onTap: () {},
                     )
@@ -141,12 +135,10 @@ class _MyHomePageState extends State<MyHomePage> {
             AlanVoice.onCommand.add((Command command) {
               debugPrint("got new command ${command.toString()}");
             });
-            
           },
           child: const Icon(
             Icons.mic_none_rounded,
           ),
-         
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: ClipRRect(
