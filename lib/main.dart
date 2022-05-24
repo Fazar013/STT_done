@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'AI Alan aps',
       theme: ThemeData(
         primarySwatch: Colors.red,
-        canvasColor: Colors.yellow,
+        canvasColor: Colors.transparent,
       ),
 
       home: const MyHomePage(),
@@ -101,7 +101,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     GlassContainer(
                       height: 250,
                       width: 320,
-                      blur: 1,
                       border: 5,
                       child: const Center(
                         child: Text(
@@ -110,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     GlassListTile(
-                      trailing : const GlassIcon(Icons.send),
+                      trailing: const GlassIcon(Icons.send),
                       title: TextField(
                         decoration: InputDecoration(
                           hintText: 'enter the command here',
@@ -142,8 +141,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: ClipRRect(
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
           child: WaterDropNavBar(
+            backgroundColor: Colors.brown,
+            waterDropColor: Colors.green,
             onItemSelected: (int index) {
               setState(() {
                 selectedIndex = index;
