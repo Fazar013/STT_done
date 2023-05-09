@@ -1,7 +1,6 @@
 import 'package:alan_voice/alan_callback.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
 import 'package:alan_voice/alan_voice.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:glassmorphism_widgets/glassmorphism_widgets.dart';
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // debugShowCheckedModeBanner: false,
-      title: 'AI Alan aps',
+      title: 'AI PT Sat NusaPersada Tbk',
       theme: ThemeData(
         primarySwatch: Colors.red,
         canvasColor: Colors.transparent,
@@ -89,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             },
                           ),
                           const Text(
-                            'Hello World AI Apps',
+                            'AI Satnusa',
                             style: TextStyle(
                               fontSize: 20,
                               color: Color.fromARGB(255, 255, 255, 255),
@@ -104,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       border: 5,
                       child: const Center(
                         child: Text(
-                          "Hello Alan",
+                          "Hello AI",
                         ),
                       ),
                     ),
@@ -133,6 +132,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
             AlanVoice.onCommand.add((Command command) {
               debugPrint("got new command ${command.toString()}");
+              buttonAlign:
+              AlanVoice.BUTTON_ALIGN_RIGHT;
             });
           },
           child: const Icon(
@@ -140,29 +141,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: ClipRRect(
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
-          child: WaterDropNavBar(
-            backgroundColor: Colors.brown,
-            waterDropColor: Colors.green,
-            onItemSelected: (int index) {
-              setState(() {
-                selectedIndex = index;
-              });
-            },
-            selectedIndex: selectedIndex,
-            barItems: <BarItem>[
-              BarItem(
-                filledIcon: Icons.smart_screen,
-                outlinedIcon: Icons.smart_screen_outlined,
-              ),
-              BarItem(
-                filledIcon: Icons.message_rounded,
-                outlinedIcon: Icons.message_outlined,
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }
